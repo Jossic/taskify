@@ -1,7 +1,21 @@
 import React from 'react';
+import { Todo } from '../model';
+import SingleTodo from './SingleTodo';
+import './style.css';
 
-const TodoList = () => {
-	return <div></div>;
+interface TodoListProps {
+	todos: Todo[];
+	setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+}
+
+const TodoList = ({ todos, setTodos }: TodoListProps) => {
+	return (
+		<div className='todos'>
+			{todos.map((todo) => (
+				<SingleTodo todo={todo} key={todo.id} />
+			))}
+		</div>
+	);
 };
 
 export default TodoList;

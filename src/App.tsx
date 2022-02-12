@@ -11,16 +11,16 @@ const App: React.FC = () => {
 	const handleAdd = (e: React.FormEvent) => {
 		e.preventDefault();
 		if (todo) {
+			setTodos([{ id: Date.now(), todo, isDone: false }, ...todos]);
+			setTodo('');
 		}
-		setTodos([{ id: Date.now(), todo, isDone: false }, ...todos]);
-		setTodo('');
 	};
 
 	return (
 		<div className='App'>
 			<span className='heading'>Taskify</span>
 			<InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-			<TodoList />
+			<TodoList todos={todos} setTodos={setTodos} />
 		</div>
 	);
 };
