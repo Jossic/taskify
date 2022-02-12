@@ -12,7 +12,12 @@ const TodoList = ({ todos, setTodos }: TodoListProps) => {
 	return (
 		<div className='todos'>
 			{todos.map((todo) => (
-				<SingleTodo todo={todo} key={todo.id} />
+				<SingleTodo
+					todo={todo}
+					key={todo.id}
+					todos={todos}
+					setTodos={setTodos}
+				/>
 			))}
 		</div>
 	);
